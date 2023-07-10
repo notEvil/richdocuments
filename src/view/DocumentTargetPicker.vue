@@ -130,7 +130,7 @@ export default {
 			this.target = entry.id
 		},
 		submit() {
-			const fileLink = window.location.protocol + '//' + window.location.host
+			const fileLink = window.location.protocol + '//' + window.location.host + (window.location.port ? ':' + window.location.port : '')
 				+ generateUrl('/apps/richdocuments/editonline/{fileId}/{target}', { fileId: this.fileId, target: this.target })
 			this.$emit('submit', fileLink)
 		},

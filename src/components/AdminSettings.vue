@@ -458,7 +458,7 @@ export default {
 			updating: false,
 			uploadingFont: false,
 			fontMimes,
-			fontHintUrl: window.location.protocol + '//' + window.location.host + generateUrl('/apps/richdocuments/settings/fonts.json'),
+			fontHintUrl: window.location.protocol + '//' + window.location.host + (window.location.port ? ':' + window.location.port : '') + generateUrl('/apps/richdocuments/settings/fonts.json'),
 			groups: [],
 			tags: [],
 			uiVisible: {
@@ -677,7 +677,7 @@ export default {
 		},
 		checkIfDemoServerIsActive() {
 			this.settings.demoUrl = this.demoServers ? this.demoServers.find((server) => server.demo_url === this.settings.wopi_url) : null
-			this.settings.CODEUrl = this.CODEInstalled ? window.location.protocol + '//' + window.location.host + generateFilePath(this.CODEAppID, '', '') + 'proxy.php?req=' : null
+			this.settings.CODEUrl = this.CODEInstalled ? window.location.protocol + '//' + window.location.host + (window.location.port ? ':' + window.location.port : '') + generateFilePath(this.CODEAppID, '', '') + 'proxy.php?req=' : null
 			if (this.settings.wopi_url && this.settings.wopi_url !== '') {
 				this.serverMode = 'custom'
 			}

@@ -38,7 +38,7 @@ const getWopiUrl = ({ fileId, title, readOnly, closeButton, revisionHistory, tar
 
 	// WOPISrc - URL that loolwsd will access (ie. pointing to ownCloud)
 	// index.php is forced here to avoid different wopi srcs for the same document
-	const wopiurl = window.location.protocol + '//' + window.location.host + getRootUrl() + '/index.php/apps/richdocuments/wopi/files/' + fileId
+	const wopiurl = window.location.protocol + '//' + window.location.host + (window.location.port ? ':' + window.location.port : '') + getRootUrl() + '/index.php/apps/richdocuments/wopi/files/' + fileId
 	console.debug('[getWopiUrl] ' + wopiurl)
 	const wopisrc = encodeURIComponent(wopiurl)
 
@@ -91,7 +91,7 @@ const getDocumentUrlForFile = (fileDir, fileId) => {
 }
 
 const getNextcloudUrl = () => {
-	return window.location.host
+	return window.location.host + (window.location.port ? ':' + window.location.port : '')
 }
 
 export {
